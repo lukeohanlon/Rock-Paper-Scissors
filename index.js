@@ -11,6 +11,10 @@ let paperC = document.getElementById('paper-c')
 let scissorsC = document.getElementById('scissors-c')
 let pResult = document.getElementById('p-result')
 let cResult = document.getElementById('c-result')
+let pScoreHolder = document.getElementById('player-score')
+let cScoreHolder = document.getElementById('computer-score')
+let playerScore = 0
+let computerScore = 0
 let userVal
 const compChoices = ['Rock', 'Paper', 'Scissors']
 
@@ -124,25 +128,40 @@ let userPlay = userVal => {
       cResult.innerText = 'Tie'
       pResult.innerText = 'Tie'
     } else if (userVal == 'Rock' && computer == 'Paper') {
+      computerScore++
       cResult.innerText = 'Win'
       pResult.innerText = 'Lose'
     } else if (userVal == 'Rock' && computer == 'Scissors') {
+        playerScore++
       cResult.innerText = 'Lose'
       pResult.innerText = 'Win'
     } else if (userVal == 'Paper' && computer == 'Rock') {
+        playerScore++
       cResult.innerText = 'Lose'
       pResult.innerText = 'Win'
     } else if (userVal == 'Paper' && computer == 'Scissors') {
+      computerScore++
       cResult.innerText = 'Win'
       pResult.innerText = 'Lose'
     } else if (userVal == 'Scissors' && computer == 'Paper') {
+        playerScore++
       cResult.innerText = 'Lose'
       pResult.innerText = 'Win'
     } else if (userVal == 'Scissors' && computer == 'Rock') {
+      computerScore++
       cResult.innerText = 'Win'
       pResult.innerText = 'Lose'
     }
-    
+    pScoreHolder.innerText = playerScore
+    cScoreHolder.innerText = computerScore
   }, 2100)
   win.innerText = ''
+}
+
+
+let resetScore = () => {
+    playerScore = 0;
+    computerScore = 0;
+    pScoreHolder.innerText = playerScore
+    cScoreHolder.innerText = computerScore
 }
