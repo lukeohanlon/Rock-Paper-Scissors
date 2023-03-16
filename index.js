@@ -132,11 +132,11 @@ let userPlay = userVal => {
       cResult.innerText = 'Win'
       pResult.innerText = 'Lose'
     } else if (userVal == 'Rock' && computer == 'Scissors') {
-        playerScore++
+      playerScore++
       cResult.innerText = 'Lose'
       pResult.innerText = 'Win'
     } else if (userVal == 'Paper' && computer == 'Rock') {
-        playerScore++
+      playerScore++
       cResult.innerText = 'Lose'
       pResult.innerText = 'Win'
     } else if (userVal == 'Paper' && computer == 'Scissors') {
@@ -144,7 +144,7 @@ let userPlay = userVal => {
       cResult.innerText = 'Win'
       pResult.innerText = 'Lose'
     } else if (userVal == 'Scissors' && computer == 'Paper') {
-        playerScore++
+      playerScore++
       cResult.innerText = 'Lose'
       pResult.innerText = 'Win'
     } else if (userVal == 'Scissors' && computer == 'Rock') {
@@ -158,10 +158,9 @@ let userPlay = userVal => {
   win.innerText = ''
 }
 
-
 let resetScore = () => {
-    playerScore = 0;
-    computerScore = 0;
-    pScoreHolder.innerText = playerScore
-    cScoreHolder.innerText = computerScore
+  playerScore = 0
+  computerScore = 0
+  pScoreHolder.innerText = playerScore
+  cScoreHolder.innerText = computerScore
 }
