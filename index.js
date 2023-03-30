@@ -180,13 +180,13 @@ let userPlay = userVal => {
         console.log('win: c p: ', computerScore, playerScore, modalChoice)
         setTimeout(() => {
           showModal(modalChoice)
-        }, 1000)
+        }, 500)
       } else if (computerScore == 3) {
         modalChoice = 'lose'
         console.log('lose: c p: ', computerScore, playerScore, modalChoice)
         setTimeout(() => {
           showModal(modalChoice)
-        }, 1000)
+        }, 500)
       }
 
       rockButton.setAttribute('disabled', '')
