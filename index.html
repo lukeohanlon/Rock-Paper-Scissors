@@ -24,6 +24,30 @@
     <title>Document</title>
   </head>
   <body>
+    <div id="modal">
+      <div onclick="closeModal()" class="modal-overlay"></div>
+      <div class="modal-box" id="modal-box">
+        <i onclick="closeModal()" class="fa-solid fa-xmark" id="modal-icon"></i>
+        <div class="modal-txt" id="lose">
+          <h2>You Lose</h2>
+          <p>
+            Sorry, better luck next time :(
+          </p>
+        </div>
+        <div class="modal-txt" id="win">
+          <h2>You Win</h2>
+          <p>
+            Congrtulations!! You Won :)
+          </p>
+        </div>
+        <div class="reset">
+          <button onclick="resetScore()" class="ui reset-btn ui rock-btn button button">
+           Play Again
+          </button>
+        </div>
+        </div>
+      </div>
+    </div>
     <div class="cont">
       <div class="header">
         <h2 id="heading">
@@ -61,13 +85,13 @@
       </div>
       <div class="btns mobile">
         <div id="player-score">0</div>
-        <button onclick="userPlay('Rock')" class="ui rock-btn button">
+        <button id="rk-btn" onclick="userPlay('Rock')" class="ui rock-btn button">
           Rock
         </button>
-        <button onclick="userPlay('Paper')" class="ui paper-btn button">
+        <button id="pp-btn" onclick="userPlay('Paper')" class="ui paper-btn button">
           Paper
         </button>
-        <button onclick="userPlay('Scissors')" class="ui scissors-btn button">
+        <button id="sc-btn" onclick="userPlay('Scissors')" class="ui scissors-btn button">
           Scissors
         </button>
         <div id="computer-score">0</div>
@@ -75,11 +99,7 @@
       <div class="winner">
         <h2 id="winner"></h2>
       </div>
-      <div class="reset">
-        <button onclick="resetScore()" class="ui reset-btn black button">
-          Reset
-        </button>
-      </div>
+      
     </div>
     <script src="index.js"></script>
   </body>

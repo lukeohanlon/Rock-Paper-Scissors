@@ -13,12 +13,25 @@ let pResult = document.getElementById('p-result')
 let cResult = document.getElementById('c-result')
 let pScoreHolder = document.getElementById('player-score')
 let cScoreHolder = document.getElementById('computer-score')
+let rockButton = document.getElementById('rk-btn')
+let paperButton = document.getElementById('pp-btn')
+let scissorsButton = document.getElementById('sc-btn')
+let texts = document.getElementsByClassName('modal-txt')
 let playerScore = 0
 let computerScore = 0
 let userVal
 const compChoices = ['Rock', 'Paper', 'Scissors']
 
+let modalChoice = ''
+let modal = document.getElementById('modal')
+let modalBox = document.getElementById('modal-box')
+// let modalChoice = ""
+// let x = 'quote-btn';
+
 let userPlay = userVal => {
+  // rockButton.setAttribute('disabled', '')
+  // paperButton.setAttribute('disabled', '')
+  // scissorsButton.setAttribute('disabled', '')
   pResult.innerText = ''
   cResult.innerText = ''
   rockP.style.display = 'none'
@@ -114,6 +127,10 @@ let userPlay = userVal => {
                   }
                   useChoice.innerText = 'Shoot!'
                   comp.innerText = 'Shoot!'
+                  console.log(playerScore, computerScore)
+                  rockButton.disabled = false
+                  paperButton.disabled = false
+                  scissorsButton.disabled = false
                 }, 250)
               }, 250)
             }, 250)
@@ -154,13 +171,60 @@ let userPlay = userVal => {
     }
     pScoreHolder.innerText = playerScore
     cScoreHolder.innerText = computerScore
+
+    if (playerScore == 3 || computerScore == 3) {
+      console.log(playerScore, computerScore)
+      modalChoice = ''
+      if (playerScore == 3) {
+        modalChoice = 'win'
+        console.log('win: c p: ', computerScore, playerScore, modalChoice)
+        setTimeout(() => {
+          showModal(modalChoice)
+        }, 1000)
+      } else if (computerScore == 3) {
+        modalChoice = 'lose'
+        console.log('lose: c p: ', computerScore, playerScore, modalChoice)
+        setTimeout(() => {
+          showModal(modalChoice)
+        }, 1000)
+      }
+
+      rockButton.setAttribute('disabled', '')
+      paperButton.setAttribute('disabled', '')
+      scissorsButton.setAttribute('disabled', '')
+    }
   }, 2100)
   win.innerText = ''
+  //   else {
+  //   showModal()
+  // }
 }
 
-let resetScore = () => {
+let showModal = () => {
+  console.log('mc:', modalChoice)
+  document.getElementById(modalChoice).style.display = 'flex'
+  modal.style.opacity = '1'
+  modal.style.zIndex = '15'
+  modalBox.style.transform = 'translate(0)'
+}
+let closeModal = () => {
+  ;[].forEach.call(texts, text => {
+    text.style.display = 'none'
+  })
+  modalChoice = ''
+  modal.style.opacity = '0'
+  modal.style.zIndex = '1'
+  modalBox.style.transform = 'translate(-100%)'
+  rockButton.disabled = false
+  paperButton.disabled = false
+  scissorsButton.disabled = false
   playerScore = 0
   computerScore = 0
   pScoreHolder.innerText = playerScore
   cScoreHolder.innerText = computerScore
+  // modalContent.style.display = 'none'
+}
+
+let resetScore = () => {
+  closeModal()
 }
