@@ -104,7 +104,7 @@ font-size: 1.4em;
    rgba(255, 232, 74, 0.7454128440366973);
 }
 .reset-btn:hover {
- /* color: #000000 !important; */
+
  
    border-top:  1px solid 
    rgba(241, 186, 245, 0.7431192660550459); 
@@ -114,7 +114,8 @@ font-size: 1.4em;
    rgba(255, 232, 74, 0.7454128440366973);
    border-right:  1px solid 
    rgba(255, 232, 74, 0.7454128440366973);
-   background: -webkit-linear-gradient( 0deg,
+   background: 
+   -webkit-linear-gradient( 0deg,
    rgba(241, 186, 245, 0.7431192660550459) 20%,
    rgba(0, 225, 212, 0.6880733944954128) 50%,
    rgba(255, 232, 74, 0.7454128440366973) 80%);

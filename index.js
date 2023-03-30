@@ -29,9 +29,9 @@ let modalBox = document.getElementById('modal-box')
 // let x = 'quote-btn';
 
 let userPlay = userVal => {
-  // rockButton.setAttribute('disabled', '')
-  // paperButton.setAttribute('disabled', '')
-  // scissorsButton.setAttribute('disabled', '')
+  rockButton.setAttribute('disabled', '')
+  paperButton.setAttribute('disabled', '')
+  scissorsButton.setAttribute('disabled', '')
   pResult.innerText = ''
   cResult.innerText = ''
   rockP.style.display = 'none'
