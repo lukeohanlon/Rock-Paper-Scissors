@@ -185,7 +185,7 @@ let userPlay = userVal => {
     pScoreHolder.innerText = playerScore
     cScoreHolder.innerText = computerScore
 
-    if (gametype == true && count ==2){
+    if (gametype == true && count ==3){
         console.log(playerScore, computerScore, count)
         modalChoice = ''
         if (playerScore > computerScore) {
