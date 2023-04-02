@@ -21,14 +21,27 @@ let playerScore = 0
 let computerScore = 0
 let userVal
 const compChoices = ['Rock', 'Paper', 'Scissors']
-
+let gametype = true
+let count = 0;
 let modalChoice = ''
 let modal = document.getElementById('modal')
 let modalBox = document.getElementById('modal-box')
 // let modalChoice = ""
 // let x = 'quote-btn';
-
+let changeGameType = () => {
+    if(gametype) {
+      gametype = false
+      document.getElementById('game1').style.display = "none"
+      document.getElementById('game2').style.display = "flex"
+    } else {
+      gametype = true
+      document.getElementById('game1').style.display = "flex"
+      document.getElementById('game2').style.display = "none"
+    }
+  }
 let userPlay = userVal => {
+  count++
+  console.log("COUNT: " , count)
   rockButton.setAttribute('disabled', '')
   paperButton.setAttribute('disabled', '')
   scissorsButton.setAttribute('disabled', '')
@@ -172,27 +185,57 @@ let userPlay = userVal => {
     pScoreHolder.innerText = playerScore
     cScoreHolder.innerText = computerScore
 
-    if (playerScore == 3 || computerScore == 3) {
-      console.log(playerScore, computerScore)
-      modalChoice = ''
-      if (playerScore == 3) {
-        modalChoice = 'win'
-        console.log('win: c p: ', computerScore, playerScore, modalChoice)
-        setTimeout(() => {
-          showModal(modalChoice)
-        }, 500)
-      } else if (computerScore == 3) {
-        modalChoice = 'lose'
-        console.log('lose: c p: ', computerScore, playerScore, modalChoice)
-        setTimeout(() => {
-          showModal(modalChoice)
-        }, 500)
+    if (gametype == true && count ==2){
+        console.log(playerScore, computerScore, count)
+        modalChoice = ''
+        if (playerScore > computerScore) {
+          modalChoice = 'win'
+          console.log('win: c p: ', computerScore, playerScore, modalChoice)
+          setTimeout(() => {
+            showModal(modalChoice)
+          }, 500)
+        } else if (computerScore > playerScore) {
+          modalChoice = 'lose'
+          console.log('lose: c p: ', computerScore, playerScore, modalChoice)
+          setTimeout(() => {
+            showModal(modalChoice)
+          }, 500)
+        } else {
+          modalChoice = 'tie'
+          console.log('lose: c p: ', computerScore, playerScore, modalChoice)
+          setTimeout(() => {
+            showModal(modalChoice)
+          }, 500)
+        }
+  
+        rockButton.setAttribute('disabled', '')
+        paperButton.setAttribute('disabled', '')
+        scissorsButton.setAttribute('disabled', '')
+      
+    } else {
+      if (playerScore == 3 || computerScore == 3) {
+        console.log(playerScore, computerScore)
+        modalChoice = ''
+        if (playerScore == 3) {
+          modalChoice = 'win'
+          console.log('win: c p: ', computerScore, playerScore, modalChoice)
+          setTimeout(() => {
+            showModal(modalChoice)
+          }, 500)
+        } else if (computerScore == 3) {
+          modalChoice = 'lose'
+          console.log('lose: c p: ', computerScore, playerScore, modalChoice)
+          setTimeout(() => {
+            showModal(modalChoice)
+          }, 500)
+        }
+  
+        rockButton.setAttribute('disabled', '')
+        paperButton.setAttribute('disabled', '')
+        scissorsButton.setAttribute('disabled', '')
       }
-
-      rockButton.setAttribute('disabled', '')
-      paperButton.setAttribute('disabled', '')
-      scissorsButton.setAttribute('disabled', '')
     }
+   
   }, 2100)
   win.innerText = ''
   //   else {
@@ -222,6 +265,7 @@ let closeModal = () => {
   computerScore = 0
   pScoreHolder.innerText = playerScore
   cScoreHolder.innerText = computerScore
+  count = 0;
   // modalContent.style.display = 'none'
 }
 

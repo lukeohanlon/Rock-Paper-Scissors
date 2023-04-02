@@ -122,6 +122,13 @@ font-size: 1.4em;
    
 }
 
+.change {
+  z-index: 100;
+}
+#game1 {
+  display: none;
+}
+
 .modal-txt {
   width: 100%;
   display: none;
