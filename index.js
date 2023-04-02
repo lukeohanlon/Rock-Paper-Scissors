@@ -29,6 +29,8 @@ let modal = document.getElementById('modal')
 let modalBox = document.getElementById('modal-box')
 // let modalChoice = ""
 // let x = 'quote-btn';
+var myScreenOrientation = window.screen.orientation;
+
 let changeGameType = () => {
     if(gametype) {
       gametype = false
@@ -41,6 +43,8 @@ let changeGameType = () => {
     }
   }
 let userPlay = userVal => {
+  myScreenOrientation.lock("portrait")
+  window.addEventListener("load", screen.orientation.lock("portrait"));
   count++
   console.log("COUNT: " , count)
   rockButton.setAttribute('disabled', '')
