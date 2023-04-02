@@ -16,6 +16,7 @@ let cScoreHolder = document.getElementById('computer-score')
 let rockButton = document.getElementById('rk-btn')
 let paperButton = document.getElementById('pp-btn')
 let scissorsButton = document.getElementById('sc-btn')
+let changeButton = document.getElementById('ch-btn')
 let texts = document.getElementsByClassName('modal-txt')
 let playerScore = 0
 let computerScore = 0
@@ -45,6 +46,7 @@ let userPlay = userVal => {
   rockButton.setAttribute('disabled', '')
   paperButton.setAttribute('disabled', '')
   scissorsButton.setAttribute('disabled', '')
+  changeButton.setAttribute('disabled', '')
   pResult.innerText = ''
   cResult.innerText = ''
   rockP.style.display = 'none'
@@ -144,6 +146,7 @@ let userPlay = userVal => {
                   rockButton.disabled = false
                   paperButton.disabled = false
                   scissorsButton.disabled = false
+                  changeButton.disabled = false
                 }, 250)
               }, 250)
             }, 250)
